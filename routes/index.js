@@ -110,7 +110,7 @@ function conversion(res, url, pageNo){
   // make request to api.torrentsapi.com
   var options = {
     host: 'api.torrentsapi.com',
-    path: '/list' + query
+    path: '/list?page=' + pageNo
   };
 
   var formatRequest = function(response) {
@@ -136,7 +136,7 @@ function conversion(res, url, pageNo){
 }
 
 router.get('/api/v2/list_movies_pct.json', function(req, res, next) {
-  conversion(res, req.originalUrl, req.params.page);
+  conversion(res, req.originalUrl, req.query.page);
   // res.render('index', { title: 'Express' });
 });
 
